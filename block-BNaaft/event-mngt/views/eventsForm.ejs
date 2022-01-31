@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header class="header_section">
+      <div class="container">
+        <div class="header flex">
+          <a href="/">
+            <strong class="logo"> Events </strong>
+          </a>
+
+          <a href="/event">
+            <button class="btn">Back</button>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="container">
+          <div>
+            <form class="form" method="POST" action="/event">
+              <fieldset>
+                <input name="title" placeholder="title" type="text" />
+                <textarea
+                  name="summary"
+                  id=""
+                  placeholder="Enter summary"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+                <input name="host" placeholder="host" type="text" />
+                <input name="start_date" placeholder="start_date" type="date" />
+                <input name="end_date" placeholder="end_date" type="date" />
+                <input
+                  name="event_category"
+                  placeholder="event_category"
+                  type="text"
+                />
+                <input name="location" placeholder="location" type="text" />
+                <div class="">
+                  <button class="btn form_btn" type="submit">Add Event</button>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer_section">
+      <div class="container">
+        <div class="footer">
+          <small>&copy; Events.Inc 2021</small>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
