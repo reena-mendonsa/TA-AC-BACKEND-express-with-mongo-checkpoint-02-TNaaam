@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://kit.fontawesome.com/914a3e3774.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- <p>Title: <%= event.title%></p>
+    <p>Summary: <%= event.summary%></p>
+    <p>Host: <%= event.host%></p>
+    <p>Start: <%= event.start_date%></p>
+    <p>End: <%= event.end_date%></p>
+    <p>Event Category: <%= event.event_category%></p>
+    <p>Location: <%= event.location%></p>
+    <p>Likes: <%= event.likes%></p>
+    <a href="/event/<%= event.id%>/edit">
+      <button>Update info</button>
+    </a>
+    <a href="/event/<%= event.id%>/delete">
+      <button>Delete info</button>
+    </a>
+    <a href="/event/">
+      <button>Back to the list</button>
+    </a>
+    <a href="/">
+      <button>Home</button>
+    </a>
+    <a href="/event/<%= event.id%>/likes">
+      <button>increase</button>
+    </a>
+    <a href="/event/<%= event.id%>/dislikes">
+      <button>decrease</button>
+    </a>
+
+    <form action="/event/<%= event.id%>/remarks" method="POST">
+      <fieldset>
+        <input name="author" type="text" placeholder="author" />
+        <textarea name="content"></textarea>
+        <input type="submit" value="add" />
+      </fieldset>
+    </form>
+    <%event.remarks.forEach(remark=>{%>
+    <p><%= remark.author%></p>
+    <h4><%= remark.content%></h4>
+    <a href="/remark/<%= remark.id%>/edit">
+      <button>edit</button>
+    </a>
+    <a href="/remark/<%= remark.id%>/delete">
+      <button>delete</button>
+    </a>
+    <%})%>
+    <script src="../javascripts/like.js"></script> -->
+
+    <header class="header_section">
+      <div class="container">
+          <div class="header flex">
+              <a href="/">
+                  <strong class="logo">
+                      Events
+                  </strong>
+              </a>
+
+              <a href="/event">
+                  <button class="btn">
+                      See my blogs
+                  </button>
+              </a>
+
+              <a href="/event">
+                <button class="btn">
+                    Back
+                </button>
+            </a>
+          </div>
+      </div>
+  </header>
+
+  <main>
+    <section class="main_section">
+      <div class="container">
+        <h2 class="event_list">Event Details</h2>
+        <section class="events_section flex-70">
+          <div>
+              <div>
+                  <h2 class="title">
+                      <%= `Event name : ${event.title }`%>
+                  </h2>
+                  <h3 class="summary summary_new">
+                      <%= `About : ${event.summary}` %>
+                  </h3>
+                  <p class="host">
+                      <%= `Host : ${event.host}`%>
+                  </p>
+                  <p class="start_date">
+                      <%= `Scheduled Event from : ${event.start_date}` %>
+                  </p>
+                  <p class="end_date">
+                      <%= `Scheduled Event To : ${event.end_date}` %>
+                  </p>
+
+                  <p class="category">
+                      <%= `Type of Event : ${event.event_category}` %>
+                  </p>
+                  <p class="location">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <%= `Location : ${event.location}` %>
+                  </p>
+
+                  <a href="/event/<%= event.id  %>/edit ">
+                      <button class="btn edit_event_btn">
+                          Edit Event
+                      </button>
+                  </a>
+                  <a href="/event/<%= event.id  %>/delete ">
+                      <button class="btn delete_event_btn">
+                          Delete Event
+                      </button>
+                  </a>
+
+                  <div class="likes_div flex">
+                      <div>
+                          <p class="likes_value">
+                              <%= event.likes %>
+                          </p>
+                          <a href="/event/<%= event.id  %>/increment ">
+                              <i class="far fa-thumbs-up likes">
+
+                              </i>
+                          </a>
+                      </div>
+                      <div>
+                          <p class="dislikes_value">
+                              <%= event.dislikes %>
+                          </p>
+                          <a href="/event/<%= event.id  %>/decrement ">
+                              <i class="far fa-thumbs-down dislikes">
+
+                              </i>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+          <div class="form_section">
+              <form class="remark_form" action="/event/<%= event.id  %>/remarks " method="POST">
+                  <textarea name="content" placeholder="Enter Remarks" id="" cols="30" rows="10"></textarea>
+                  <input type="text" name="author" placeholder="Enter Author name">
+                  <button class="btn remark_btn" type="submit">
+                      Add Remark
+                  </button>
+              </form>
+          </div>
+      </div>
+  </section>
+
+
+  <section class="remark_section_total">
+    <div class="container">
+        <div class=" flex wrap">
+          <% event.remarks.forEach(remark=> { %>
+            <div class="remark_section flex-28">
+                <div class="remarks_div">
+                    <div>
+                        <h2 class="text">
+                            <%= remark.content %>
+                        </h2>
+                        <h3 class="author">
+                            <%= `Author : ${remark.author }` %>
+                        </h3>
+
+                        <a href="/remark/<%= remark.id  %>/edit ">
+                            <button class="btn edit_remark_btn">
+                                Edit
+                            </button>
+                        </a>
+                        <a href="/remark/<%= remark.id  %>/delete ">
+                            <button class="btn delete_remark_btn">
+                                Delete
+                            </button>
+                        </a>
+                    </div>
+
+                    <div class="likes_div flex">
+                        <div>
+                            <p class="likes_value">
+                                <%= remark.likes %>
+                            </p>
+                            <a href="/remark/<%= remark.id  %>/increment ">
+                                <i class="far fa-thumbs-up likes">
+
+                                </i>
+                            </a>
+                        </div>
+                        <div>
+                            <p class="dislikes_value">
+                                <%= remark.dislikes %>
+                            </p>
+                            <a href="/remark/<%= remark.id  %>/decrement ">
+                                <i class="far fa-thumbs-down dislikes">
+
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <% }) %>
+          
+        </div>
+    </div>
+</section>
+  </main>
+  </body>
+</html>
